@@ -54,6 +54,12 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void property_override_dual(char const system_prop[], char const vendor_prop[], char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void vendor_load_properties()
 {
     std::string platform;
@@ -67,9 +73,9 @@ void vendor_load_properties()
     sku = GetProperty("ro.boot.hardware.sku", "");
     car = GetProperty("ro.boot.carrier", "");
 
-    property_override("ro.product.model", sku.c_str());
+    property_override_dual("ro.product.model", "ro.vendor.product.model", sku.c_str());
     property_override("ro.build.product", "kinzie");
-    property_override("ro.product.device", "kinzie");
+    property_override_dual("ro.product.device", "ro.vendor.product.device", "kinzie");
 
     if (sku == "XT1580") {
 	property_override("ro.product.name", "Moto X Force");
@@ -80,24 +86,24 @@ void vendor_load_properties()
             // EU
             setSsim();
             property_override("ro.build.description", "kinzie_reteu-user 7.0 NPKS25.200-12-9 6 release-keys");
-            property_override("ro.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
+            property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
             property_set("ro.fsg-id", "emea");
         } else if ((car == "retbr") || (car == "retla") || (car == "tefbr") || (car == "timbr")) {
             /* Brazil -- LATAM*/
             setLatMsim();
             property_set("ro.build.version.full","Blur_Version.24.11.8.kinzie_retla_ds.retla.en.01");
             property_override("ro.build.description", "kinzie_reteu-user 7.0 NPKS25.200-12-9 6 release-keys");
-            property_override("ro.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
+            property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
         } else if (car == "retmx") {
             /* Mexico */
             setLatMsim();
             property_override("ro.build.description", "kinzie_reteu-user 7.0 NPKS25.200-12-9 6 release-keys");
-            property_override("ro.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
+            property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
         } else {
             //default to EU
             setSsim();
             property_override("ro.build.description", "kinzie_reteu-user 7.0 NPKS25.200-12-9 6 release-keys");
-            property_override("ro.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
+            property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
         }
     } else if ((sku == "XT1585") || (sku == "MOTXT1585")) {
         /* US */
@@ -108,7 +114,7 @@ void vendor_load_properties()
         property_set("ro.telephony.default_network", "10,10");
         property_set("telephony.lteOnCdmaDevice", "1");
         property_override("ro.build.description", "kinzie_verizon-user 6.0 MCK24.78-13.11 11 release-keys");
-        property_override("ro.build.fingerprint", "motorola/kinzie_verizon/kinzie:6.0/MCK24.78-13.11/11:user/release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/kinzie_verizon/kinzie:6.0/MCK24.78-13.11/11:user/release-keys");
     } else if (sku == "XT1581") {
         /* China */
         setMsim();
@@ -125,7 +131,7 @@ void vendor_load_properties()
         property_set("ril.subscription.types", "RUIM");
         property_set("persist.radio.force_get_pref", "1");
         property_override("ro.build.description", "kinzie_reteu-user 7.0 NPKS25.200-12-9 6 release-keys");
-        property_override("ro.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
+        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "motorola/kinzie_reteu/kinzie:7.0/NPKS25.200-12-9/6:user/release-keys");
     }
 }
 static void setSsim(void)
