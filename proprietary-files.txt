@@ -207,6 +207,14 @@ vendor/lib/libmmcamera_isp_ltm44.so
 vendor/lib/libmmcamera_isp_gamma44.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_imglib.so
+vendor/lib/libmmcamera_isp_color_xform_video46.so
+vendor/lib/libmmcamera_isp_fovcrop_video46.so
+vendor/lib/libmmcamera_isp_gic46.so
+vendor/lib/libmmcamera_isp_gtm46.so
+vendor/lib/libmmcamera_isp_hdr46.so
+vendor/lib/libmmcamera_isp_hdr_be_stats46.so
+vendor/lib/libmmcamera_isp_pedestal_correct46.so
+vendor/lib/libmmcamera_isp_scaler_video46.so
 vendor/lib/libmmcamera_chromaflash_lib.so
 vendor/lib/libmmcamera_llvd.so
 vendor/lib/libmmcamera_optizoom_lib.so
@@ -318,8 +326,6 @@ vendor/lib/libmm-disp-apis.so
 vendor/lib64/libmm-disp-apis.so
 vendor/lib/libmm-qdcm.so
 vendor/lib64/libmm-qdcm.so
-vendor/lib/libsd_sdk_display.so
-vendor/lib64/libsd_sdk_display.so
 
 # QMI
 bin/ATFWD-daemon
@@ -502,7 +508,6 @@ vendor/lib/libcneqmiutils.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib/libcne.so
 vendor/lib64/libcne.so
-vendor/lib64/libprotobuf-cpp-lpro.so
 vendor/lib/libvendorconn.so
 vendor/lib64/libvendorconn.so
 vendor/lib/libwqe.so
@@ -562,7 +567,6 @@ vendor/lib/libmdmdetect.so
 vendor/lib64/libmdmdetect.so
 vendor/lib/libnetmgr.so
 vendor/lib64/libnetmgr.so
-vendor/lib64/libprotobuf-cpp-preo.so
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 vendor/lib/libril-qc-ltedirectdisc.so
