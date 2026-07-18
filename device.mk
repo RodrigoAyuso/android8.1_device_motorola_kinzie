@@ -203,7 +203,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8994
+    android.hardware.power@1.0-service-qti
 
 # Radio
 PRODUCT_COPY_FILES += \
@@ -249,6 +249,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     thermanager
 
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2017-10-01
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
@@ -281,10 +285,6 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.vibrator@1.0-service.lineage \
     android.hardware.sensors@1.0-impl \
-    android.hardware.power@1.0-impl \
     android.hardware.thermal@1.0-impl \
     android.hardware.gnss@1.0-impl \
     android.hardware.usb@1.0-service
-
-PRODUCT_COPY_FILES += \
-    device/motorola/kinzie/configs/manifest.xml:system/vendor/manifest.xml
