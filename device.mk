@@ -74,7 +74,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/com.motorola.cameraone.xml:system/etc/permissions/com.motorola.cameraone.xml
 
 # LineageActions
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
 	LineageActions
 
 # Display
